@@ -20,6 +20,9 @@
         <div id="display_vote" style="font-size: 16vh; text-align: center;">
             <h1 id="vote_text" style="visibility: hidden"></h1>
         </div>
+        <div style="font-size: 8vh; text-align: center;">
+            <h1 style="visibility: hidden">FILL THE SCREEN</h1>
+        </div>
     </body>
     <script>
         var buttons = document.getElementById('buttons')
@@ -30,15 +33,15 @@
             vote_text.style.visibility = 'hidden';
             display_vote.style.display = 'block';
             vote_text.innerText = vote
-            display_vote.addEventListener('click', show_vote, true); 
+            document.body.addEventListener('click', show_vote, true); 
         }
         function show_vote() {
-            display_vote.removeEventListener('click', show_vote, true); 
+            document.body.removeEventListener('click', show_vote, true); 
             vote_text.style.visibility = 'visible';
-            display_vote.addEventListener('click', show_buttons, true); 
+            document.body.addEventListener('click', show_buttons, true); 
         }
         function show_buttons() {
-            display_vote.removeEventListener('click', show_buttons, true); 
+            document.body.removeEventListener('click', show_buttons, true); 
             display_vote.style.display = 'none';
             buttons.style.display = 'block';
         }
